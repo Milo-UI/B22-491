@@ -1,0 +1,100 @@
+<!-- Il tag DOCTYPE definisce il documento come un file HTML, così che il browser possa interpretarlo correttamente -->
+<!DOCTYPE html>
+<!-- Il tag HTML è il nostro "root tag" che contiene tutto il nostro documento -->
+<html lang="it">
+
+<!-- Il tag HEAD contiene tutta una serie di tag che servono a fornire informazioni extra sul sito, come meta-dati o il titolo della pagina. Tutto ciò che viene riportato nella head del documento non verrà visualizzato sulla pagina renderizzata dal browser. -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Il tag TITLE riporta il titolo della pagina. Importante per la SEO -->
+    <title>HTML & CSS - HTML 01 - Intro</title>
+
+    <link rel="stylesheet" href="../css/general.css">
+</head>
+
+<!-- Il tag BODY contiene tutto ciò che verrà visualizzato dagli utenti che visitano la nostra pagina web -->
+
+<body>
+
+    <main class="wrapper">
+
+        <h1>HTML & CSS - HTML 01 - Intro</h1>
+
+        <h2>Cos'è l'HTML?</h2>
+
+        <h3><strong>H</strong>yperText <strong>M</strong>arkup <strong>L</strong>anguage</h3>
+
+        <p>
+            È un linguaggio di markup e non di programmazione. Si tratta quindi di un sistema di annotazioni utilizzato per definire la struttura e il layout di un documento. Markup infatti è un termine che si riferisce a un insieme di tag o annotazioni inseriti in un testo per specificare come questo debba essere visualizzato o interpretato.
+        </p>
+
+        <p>
+            L'HTML viene usato per strutturare il contenuto di una pagina web (immagini, testo, form, ecc). <br>
+            Per farlo utilizziamo quelli che si chiamano tag HTML.
+        </p>
+
+        <p>
+            I tag rappresentano differenti tipi di contenuto o informazioni all'interno di una pagina web. Per esempio, avremo un tag apposito per le immagini, uno per i form, uno per i paragrafi di testo e così via. I tag vengono anche chiamati elementi HTML.
+        </p>
+
+        <p>
+            Questo è un tag H1, che rappresenta il titolo principale di una pagina.
+        </p>
+
+        <p>
+            È composto da un tag di apertura, uno di chiusura e del contenuto compreso tra i due. La differenza tra apertura e chiusura è data dallo slash che precede il nome del tag nella chiusura.
+        </p>
+
+        <p>
+            <strong>I TAG VANNO SEMPRE CHIUSI!</strong>
+        </p>
+
+        <p>
+            Esistono anche dei tag (pochissimi) che non hanno bisogno di una chiusura, in quanto autoconclusivi, infatti non contengono nulla al loro interno.
+            Un esempio è il tag IMG.
+        </p>
+
+        <p>
+            I tag HTML possono avere degli <strong>attributi</strong>: informazioni aggiuntive che modificano il comportamento o il significato di un elemento. Gli attributi si inseriscono nel tag di apertura e sono sempre composti da un nome e un valore. Il tag <code>&lt;img&gt;</code>, per esempio, ha bisogno dell'attributo <code>src</code> per sapere quale immagine caricare, e dell'attributo <code>alt</code> per descriverla a chi non può vederla.
+        </p>
+
+        <p>
+            Due attributi particolarmente importanti — perché li useremo moltissimo con il CSS — sono <code>class</code> e <code>id</code>. Entrambi servono a identificare un elemento, ma con una differenza chiave: un <code>id</code> deve essere unico all'interno della pagina, mentre una <code>class</code> può essere assegnata a più elementi contemporaneamente.
+        </p>
+
+        <h2>Cos'è il CSS?</h2>
+
+        <h3><strong>C</strong>ascading <strong>S</strong>tyle <strong>S</strong>heets</h3>
+
+        <p>
+            Il CSS è un linguaggio separato che lavora mano nella mano con l'HTML e viene usato per dare uno stile alla pagina web, così che abbia un aspetto ancora migliore.
+        </p>
+
+        <p>
+            L'HTML crea la struttura dei contenuti che vogliamo far vedere sulla pagina, ma è il CSS a renderli piacevoli alla vista, agendo sui colori, la posizione degli elementi, aggiungendo effetti visivi, cambiando le dimensioni del font e così via.
+        </p>
+
+        <p>
+            Una regola CSS è composta da tre parti: un <strong>selettore</strong>, che indica a quale elemento HTML si vuole applicare lo stile; una <strong>proprietà</strong>, che indica cosa si vuole modificare (es. il colore, la dimensione del testo); e un <strong>valore</strong>, che indica come modificarlo. Insieme formano una <em>dichiarazione</em>.
+        </p>
+
+        <p>
+            Il CSS può essere scritto in tre modi: direttamente nell'attributo <code>style</code> di un tag HTML (<em>inline</em>), all'interno di un tag <code>&lt;style&gt;</code> nell'<code>&lt;head&gt;</code> del documento (<em>interno</em>), oppure in un file <code>.css</code> separato collegato tramite il tag <code>&lt;link&gt;</code> (<em>esterno</em>). Quest'ultimo è il metodo preferibile: mantiene il codice separato e riutilizzabile su più pagine.
+        </p>
+
+        <p>
+            Una delle proprietà CSS più importanti — e spesso fonte di confusione — è il <strong>box model</strong>. In CSS ogni elemento è trattato come una scatola rettangolare composta da quattro livelli: il contenuto, il <em>padding</em> (spazio interno tra il contenuto e il bordo), il <em>border</em> (il bordo vero e proprio) e il <em>margin</em> (spazio esterno tra l'elemento e gli altri elementi circostanti).
+        </p>
+
+        <p>
+            Il termine <em>cascading</em> nel nome CSS non è casuale: quando più regole si applicano allo stesso elemento, il browser segue un ordine di priorità ben preciso chiamato <strong>specificità</strong>. In linea generale, uno stile dichiarato inline ha priorità su quello in un file esterno, e un selettore per ID è più specifico di uno per classe, che a sua volta è più specifico di uno per tipo di elemento.
+        </p>
+
+    </main>
+
+</body>
+
+</html>
