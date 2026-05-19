@@ -76,11 +76,11 @@
         <hr>
 
         <!-- 
-        Liste ordinate e non ordinate.
-        È possibile creare delle liste puntate o numerate utilizzando i corretti tag HTML.
+            Liste ordinate e non ordinate.
+            È possibile creare delle liste puntate o numerate utilizzando i corretti tag HTML.
 
-        Questi sono UL e OL, rispettivamente Unordered List e Ordered List. Comunicano al browser che ciò che contengono è una lista. Ogni elemento della lista invece viene contenuto all'interno di tag LI, List Item, e gli LI sono gli unici tag accettati come figli diretti di UL e OL.
-    -->
+            Questi sono UL e OL, rispettivamente Unordered List e Ordered List. Comunicano al browser che ciò che contengono è una lista. Ogni elemento della lista invece viene contenuto all'interno di tag LI, List Item, e gli LI sono gli unici tag accettati come figli diretti di UL e OL.
+        -->
         <ul>
             <li>Mario</li>
             <li>Luigi</li>
@@ -104,6 +104,76 @@
         <div>
             Sono un tag DIV
         </div>
+
+        <!--
+            Il tag SPAN è simile a un DIV, ma non si comporta nella stessa maniera.
+            È sempre un tag generico e viene spesso utilizzato per aggiungere CSS a una porzione di testo o ad altri elementi
+        -->
+        <span>Sono un tag SPAN</span>
+
+        <hr>
+
+        <!--
+            Il tag IMG è un tag autoconclusivo che permette di visualizzare un'immagine all'interno della pagina web.
+
+            Per dire al browser quale immagine debba essere renderizzata, dobbiamo usare un ATTRIBUTO.
+
+            Gli attributi sono un qualcosa che si aggiunge all'interno del tag di apertura, nelle parentesi angolari, per fornire al browser informazioni aggiuntive sull'elemento.
+
+            Assegnando al tag IMG un attributo src (source) possiamo dire al browser dove andare a trovare l'immagine da renderizzare sulla pagina. Assegnando all'attributo src come valore il percorso dell'immagine da utilizzare, il browser sa dove trovarla.
+
+            È bene anche utilizzare l'attributo al (ALTernate text) che fornisce una descrizione testuale dell'immagine. Questa serve in caso l'immagine non possa essere renderizzata e, ancor più importante, a essere riconosciuta dai lettori di pagine web per ipovedenti.
+        -->
+        <img src="img/micetto.webp" alt="Gattino che miagola al sole" width="400">
+
+        <hr>
+
+        <!--
+            Il tag A, o Àncora, serve a creare un link ad altre pagine, altri siti o altri contenuti.
+
+            Il tag A ha bisogno dell'attributo href (Hyperlink REFerence) il cui valore indica la pagina o il sito a cui ilnk deve puntare.
+
+            È bene utilizzare l'attributo title, che riporta un messaggio per l'utente che idica dove si andrà a finire cliccando sul link.
+
+            Se il link punta a un sito esterno, conviene sempre usare l'attributo target con un valore di _blank, in modo da far aprire il sito esterno in una nuova tab del browser. In questo modo non perdiamo l'utente che si trova sul nostro sito.
+        -->
+        <a href="https://www.google.com" title="Link al sito di Google" target="_blank">Vai al sito di Google</a>
+        <br>
+        <a href="01-intro.html" title="Vai alla prima pagina del corso">Torna alla prima pagina del corso</a>
+
+        <!--
+            Anche se SCONSIGLIATISSIMO, è possibile utilizzare l'attributo styledare uno stile a un elemento.
+            All'interno di questo attributo si può scrivere in CSS tutte le regole che vogliamo assegnare all'elemento.
+        -->
+        <p style="color: orange;">
+            Dammi uno <span style="font-size: 20px;">stile diverso</span> dagli altri! :)
+        </p>
+
+        <!-- --------------------------- HTML semantico ---------------------------- -->
+        <!--
+            Usare tag che descrivono il contenuto in modo chiaro al browser, ai motori di ricerca e agli screen reader.
+        -->
+
+        <!-- Intestazione della pagina o di una sezione in cima alla pagina -->
+        <header></header>
+
+        <!-- Menù di navigazione -->
+        <nav></nav>
+
+        <!-- Contenuto principale della pagina -->
+        <main></main>
+
+        <!-- Contenuti secondari o correlati (pubblicità, articoli correlati, boox laterali, ecc.) -->
+        <aside></aside>
+
+        <!-- Contenuto autonomo e riutilizzabile (articolo di un blog, scheda prodotto, card prodotto, ecc) -->
+        <article></article>
+
+        <!-- Raggruppamento tematico di contenuti -->
+        <section></section>
+
+        <!-- Chiusura della pagina o piè di pagina -->
+        <footer></footer>
 
     </div>
 
