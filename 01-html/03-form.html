@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS - HTML 03 - Form HTML</title>
+
+    <link rel="stylesheet" href="../css/general.css">
+</head>
+<body style="min-height: 300vh;"
+
+    <div class="wrapper">
+
+        <h1>Form HTML</h1>
+
+        <!--
+            I form vengono utilizzati per ottenere informazioni dall'utente, che sia per permettergli di fare il login o la registrazione a un sito, o per contattare i proprietari del sito mandandogli un messaggio, o ancora un form di ricerca dove possiamo chiedere all'utente i parametri della sua ricerca.
+
+            Per questo di solito unform è composta da una serie di campi di input nei quali l'utente può immettere le informazioni. In base al tipo di informazione richiesta, servirà un tipo di input specifico che stabiliremo tramite l'attributo type.            
+        -->
+
+        <!-- L'attributo action nel tag FORM serve a dire al browser cosa fare una volta che l'utente invia le informazioni -->
+            <!--
+                I tag INPUT sono autoconclusivi e hanno sempre l'attributo type per indicare il genere di dato che ci aspettiamo dall'utente. Per esempio text, che è il più generico, si aspetta una stringa di testo di qualsiasi tipo.
+
+                Di solito si assegna anche un id per poterlo legare alla propria etichetta.
+                È buona norma utilizzare i tag LABEL per etichettare i campi di input, così che il browser e soprattutto l'utente sappiano che tipo di dato ci aspettiamo che venga inserito all'interno dell'input. Nell'attributo for della LABEL si inserisce l'id dell'input che descrive.
+
+                L'attributo name ha uno scopo simile a id, ma viene anche utilizzato nel momento in cui il form viene inviato e un file php, per fare un esempio, prende i dati e li processa in base a ciò che serve servendosi dell'attributo name.
+                In HTML il name di un input serve anche a raggruppare assieme parti di un form. Un esempio possono essere le checkbox o i radio button.
+
+                Esistono campi di input che non richiedono all'utente di scrivere qualcosa, ma di selezionare una o più opzioni, come per esempio checkbox, radio button e select.
+
+                La SELECT è un campo di input che permette all'utente di cliccare su di essa per avere un menù a tendina dal quale scegliere il valore da inserire e poi inviare. Siccome dobbiamo inserire noi le opzioni della SELECT, non useremo il tag INPUT che è autoconclusivo, ma un tag SELECT, che accetta al suo interno dei tag OPTION, i quali riporteranno le opzioni di valori tra cui scegliere.
+
+                Utilizziamo il tag TEXTAREA per dare all'utente la possibilità di inserire una grande quantità di testo, per esempio nel caso in cui gli chiedessimo una biografia, o di scrivere un messaggio dettagliato al proprietario del sito.
+
+                Alla fine metteremo un campo di input di tipo submit, che farà visualizzare un bottone che permetterà all'utente di inviare il form appena compilato. Al click, il browser prenderà il valore all'interno dell'attributo action del form e invierà lì i dati inseriti dall'utente. Non avendo nessuna gestione del backend, la pagina di default verrà refreshata e potremo vedere tutti i dati nella barra degli indirizzi del browser.
+            -->
+        <form action="">            
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Scegli il tuo username" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Inserisci il tuo indirizzo mail" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Inserisci la tua password" required>
+
+            <label for="provincia">Provincia</label>
+            <select id="provincia" name="provincia">
+                <option value="">Seleziona la tua provincia</option>
+                <option value="to">Torino</option>
+                <option value="mi">Milano</option>
+                <option value="rm">Roma</option>
+            </select>
+
+            <span>Seleziona il tuo gender</span> <br>
+            <input type="radio" id="gender1" name="gender" value="uomo">
+            <label for="gender1">Uomo</label>
+
+            <input type="radio" id="gender2" name="gender" value="donna">
+            <label for="gender2">Donna</label>
+
+            <input type="radio" id="gender3" name="gender" value="altro">
+            <label for="gender3">Altro</label>
+
+            <br>
+
+            <span>Seleziona i tuoi hobby</span> <br>
+            <input type="checkbox" id="hobby1" name="hobby" value="leggere">
+            <label for="hobby1">Leggere</label>
+
+            <input type="checkbox" id="hobby2" name="hobby" value="sport">
+            <label for="hobby2">Sport</label>
+
+            <input type="checkbox" id="hobby3" name="hobby" value="gaming">
+            <label for="hobby3">Gaming</label>
+
+            <br>
+
+            <label for="bio">Dicci qualcosa sulla tua vita:</label>
+            <textarea id="bio" name="bio" cols="60" rows="10" placeholder="Parlaci di te..."></textarea>
+
+            <!-- <input type="submit" value="Invia il form e registrati"> -->
+            <button type="reset">Cancella tutto</button>
+            <button type="submit">Invia il form e registrati</button>
+        </form>
+        
+    </div>
+    
+</body>
+</html>
