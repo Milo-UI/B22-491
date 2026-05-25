@@ -44,6 +44,18 @@ code {
     font-size: 0.9rem;
 }
 
+table,
+th,
+td {
+    border: 1px solid #323231;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 8px 16px;
+}
+
 .wrapper {
     width: 100%;
     max-width: 960px;

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS - HTML 05 - Tables</title>
+
+    <link rel="stylesheet" href="../css/general.css">
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <h1>Tables</h1>
+
+        <h2>Struttura base</h2>
+
+        <ul>
+            <li>
+                <code>&lt;table&gt;</code> -> contenitore della tabella
+            </li>
+            <li>
+                <code>&lt;tr&gt;</code> -> table row: una riga
+            </li>
+            <li>
+                <code>&lt;th&gt;</code> -> table header: cella di intestazione (testo in grassetto e centrato di default)
+            </li>
+            <li>
+                <code>&lt;td&gt;</code> -> table data: cella normale
+            </li>
+        </ul>
+
+        <table>
+            <tr>
+                <th>Header 1</th>
+                <th>Header 2</th>
+                <th>Header 3</th>
+                <th>Header 4</th>
+            </tr>
+            <tr>
+                <td>Cella</td>
+                <td>Cella</td>
+                <td>Cella</td>
+                <td>Cella</td>
+            </tr>
+            <tr>
+                <td>Cella</td>
+                <td>Cella</td>
+                <td>Cella</td>
+                <td>Cella</td>
+            </tr>
+            <tr>
+                <td>Cella</td>
+                <td>Cella</td>
+                <td>Cella</td>
+                <td>Cella</td>
+            </tr>
+        </table>
+
+        <h2>Attributi utili su <code>&lt;th&gt;</code> e <code>&lt;td&gt;</code></h2>
+
+        <ul>
+            <li>
+                <code>colspan="2"</code> -> la cella occupa 2 colonne
+            </li>
+            <li>
+                <code>rowspan="3"</code> -> la cella occupa 3 righe
+            </li>
+        </ul>
+
+        <table>
+            <tr>
+                <th>Header 1</th>
+                <th>Header 2</th>
+                <th colspan="2">Header 3</th>
+            </tr>
+            <tr>
+                <td rowspan="2">Cella</td>
+                <td>Cella</td>
+                <td>Cella</td>
+                <td>Cella</td>
+            </tr>
+            <tr>
+                <!-- <td>Cella</td> -->
+                <td>Cella</td>
+                <td>Cella</td>
+                <td>Cella</td>
+            </tr>
+            <tr>
+                <td>Cella</td>
+                <td>Cella</td>
+                <td>Cella</td>
+                <td>Cella</td>
+            </tr>
+        </table>
+
+        <h2>Elementi opzionali (buona pratica semantica)</h2>
+
+        <ul>
+            <li>
+                <code>&lt;thead&gt;</code> -> raggruppa le righe di intestazione
+            </li>
+            <li>
+                <code>&lt;tbody&gt;</code> -> raggruppa le righe di dati
+            </li>
+            <li>
+                <code>&lt;tfoot&gt;</code> -> raggruppa le righe di piè di tabella
+            </li>
+        </ul>
+
+        <p>
+            Non cambiano la resa visiva di default, ma migliorano la leggibilità del codice e l'accessibilità.
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Header 1</th>
+                    <th>Header 2</th>
+                    <th>Header 3</th>
+                    <th>Header 4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Cella</td>
+                    <td>Cella</td>
+                    <td>Cella</td>
+                    <td>Cella</td>
+                </tr>
+                <tr>
+                    <td>Cella</td>
+                    <td>Cella</td>
+                    <td>Cella</td>
+                    <td>Cella</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>Totale</td>
+                    <td>Cella</td>
+                    <td>Cella</td>
+                    <td>Cella</td>
+                </tr>
+            </tfoot>
+        </table>
+
+    </div>
+
+</body>
+</html>

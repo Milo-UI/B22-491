@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="../css/general.css">
 </head>
-<body style="min-height: 300vh;"
+<body>
 
     <div class="wrapper">
 
@@ -20,7 +20,7 @@
         -->
 
         <!-- L'attributo action nel tag FORM serve a dire al browser cosa fare una volta che l'utente invia le informazioni -->
-            <!--
+        <!--
                 I tag INPUT sono autoconclusivi e hanno sempre l'attributo type per indicare il genere di dato che ci aspettiamo dall'utente. Per esempio text, che è il più generico, si aspetta una stringa di testo di qualsiasi tipo.
 
                 Di solito si assegna anche un id per poterlo legare alla propria etichetta.
@@ -37,7 +37,7 @@
 
                 Alla fine metteremo un campo di input di tipo submit, che farà visualizzare un bottone che permetterà all'utente di inviare il form appena compilato. Al click, il browser prenderà il valore all'interno dell'attributo action del form e invierà lì i dati inseriti dall'utente. Non avendo nessuna gestione del backend, la pagina di default verrà refreshata e potremo vedere tutti i dati nella barra degli indirizzi del browser.
             -->
-        <form action="">            
+        <form action="">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" placeholder="Scegli il tuo username" required>
 
@@ -86,8 +86,8 @@
             <button type="reset">Cancella tutto</button>
             <button type="submit">Invia il form e registrati</button>
         </form>
-        
+
     </div>
-    
+
 </body>
 </html>

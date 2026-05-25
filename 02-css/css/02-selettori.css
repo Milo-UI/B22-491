@@ -1,0 +1,56 @@
+/*
+    I selettori di tipo vengono utilizzati per selezionare e applicare stili a TUTTI gli elementi di un determinato tipo (tag).
+*/
+p {
+    color: #535353;
+}
+
+/*
+    Possiamo assegnare una classe con l'attributo HTML class="" e richiamarla nel foglio di stile con il nome che abbiamo scelto preceduto da un punto.
+
+    Assegno al P che mi interessa la classe error e da CSS la richiamo per dire a TUTTI gli elementi che posseggono questa classe che dovranno avere le regole specificate qua sotto.
+*/
+/* .error {
+    color: tomato;
+} */
+
+/*
+    Se volessimo selezionare solo i paragrafi con classe error, dovremmo ricorrere a un selettore più specifico.
+*/
+p.error {
+    color: tomato;
+}
+
+p.success {
+    color: #008037;
+}
+
+p.success.feedback {
+    border: 2px dashed #008037;
+    padding: 10px;
+}
+
+/*
+    L'attributo id può essere usato a sua volta in CSS come selettori di un elemento (uno solo, visto che l'id è univoco).
+    Converrebbe evitare di assegnarli solo per CSS, perché vengono utilizzati spesso per JavaScript, in più hanno una specificità più forte di quella delle classi, quindi le regole ad essi assegnate sono più difficili da sovrascrivere.
+*/
+#content {
+    background-color: #c8c8c8;
+    padding: 20px;
+}
+
+/*
+    È possibile essere ancora più specifici sfruttando i selettori di discendenza. Possiamo selezionare gli elementi figli di un elemento genitore.
+*/
+/* Tutti i paragrafi che sono contenuti dentro a un elemento DIV */
+div p {
+    font-weight: bold;
+}
+
+/* Possiamo assegnare le stesse regole a più elementi slegati tra loro */
+h1,
+h2,
+h3,
+h4 {
+    background-color: cadetblue;
+}
