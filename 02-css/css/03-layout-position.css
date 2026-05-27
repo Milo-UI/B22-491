@@ -1,0 +1,101 @@
+/*
+    Il layout di una pagina è la disposizione visiva degli elementi all'interno della pagina. Include la struttura e l'organizzazione di elementi come testi, pulsanti, immagini, menu, ecc.
+
+    Ci sono delle proprietà CSS che ci permettono di controllare la posizione degli elementi sulla pagina e una di queste è position.
+
+    Position può avere 5 valori:
+
+        - static -> il valore di default di tutti gli elementi HTML. L'elemento segue il normale flusso del documento, venendo posizionato quindi in base all'ordine in cui appare nell'HTML. Non può essere spostato usando le proprietà top, right, bottom e left.
+
+        - relative -> gli elementi con position: relative sono posizionati in relazione alla loro posizione originale nel flusso del documento. Possiamo utilizzare le proprietà top, right, bottom e left per spostare l'elemento dalla sua posizione normale, ma lo spazio occupato dall'elemento rimane invariato nel flusso del documento.
+
+        - fixed -> gli elementi con position: fixed sono posizionati rispetto alla finestra de browser. Rimangono fissi anche quando l'utente scorre la pagina. Vengono rimossi dal normale flusso del documento, ma la loro posizione è sempre relativa alla finestra del browser.
+
+        - absolute -> gli elementi con position: absolute sono posizionati rispetto al loro primo antenato non static (quindi un elemento con position: relative, absolute o fixed). Vengono rimossi dal flusso del documento, quindi non occupano spazio. Le proprietà top, right, bottom e left possono essere usate per posizionarli a piacimento.
+
+        - sticky -> gli elementi con position: sticky sono una combinazione di relative e fixed. Rimangono nel flusso del documento fino a quando non raggiungono con lo scroll il punto specificato (definito dalle proprietà top, right, bottom e left), momento in cui si 'attaccano' alla viewport.
+
+    Riassunto:
+
+    VALORE          DESCRIZIONE
+    static          Posizionamento normale, non può essere spostato
+    relative        Posizionamento rispetto alla sua posizione originale
+    absolute        Posizionato rispetto al primo antenato NON static
+    fixed           Fisso rispetto alla finestra del browser
+    sticky          Comportamento misto tra relative e fixed
+
+    top:            distanza dal bordo superiore
+    right:          distanza dal bordo destro
+    bottom:         distanza dal bordo inferiore
+    left:           distanza dal bordo sinistro
+
+    Prendere l'esercizio di Star Wars. Creare una header con classe .hero che contenga almeno h1 e h2. L'header deve avere un'immagine di background e una altezza minima abbastanza elevata. Il contenuto testuale deve essere perfettamente centrato nell'header.
+*/
+main {
+    max-width: 1000px;
+    /* margin-left: auto;
+    margin-right: auto; */
+    /* margin: 0 auto; */
+    margin-inline: auto;
+    padding: 0 16px;
+
+    /* Per vedere il comportamento di fixed */
+    min-height: 300vh;
+    /* Per fare spazio all'elemento fixed */
+    padding-top: 85px;
+}
+
+h2 {
+    margin: 20px;
+}
+
+.background {
+    background-color: #d1d1d1;
+}
+
+.box {
+    padding: 5px 16px;
+    background-color: #ffff7b;
+    border: 1px dashed #313131;
+    border-radius: 8px;
+}
+
+.relative {
+    position: relative;
+    top: 20px;
+    left: 20px;
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    /* width: 100%; */
+
+    z-index: 1;
+}
+
+.parent-absolute {
+    position: relative;
+    min-height: 500px;
+    padding: 16px;
+    /* margin: 48px 0; */
+    margin-block: 48px;
+    background-color: #d1d1d1;
+}
+
+.absolute {
+    position: absolute;
+    /* Shorthand per top, right, bottom e left */
+    /* inset: 0; */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.sticky {
+    position: sticky;
+    top: 85px;
+}

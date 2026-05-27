@@ -42,15 +42,60 @@ p.success.feedback {
 /*
     È possibile essere ancora più specifici sfruttando i selettori di discendenza. Possiamo selezionare gli elementi figli di un elemento genitore.
 */
-/* Tutti i paragrafi che sono contenuti dentro a un elemento DIV */
+/* Selettori di discendenti: tutti i paragrafi che sono contenuti dentro a un elemento DIV */
 div p {
     font-weight: bold;
 }
 
-/* Possiamo assegnare le stesse regole a più elementi slegati tra loro */
+/* Selettori multipli: possiamo assegnare le stesse regole a più elementi slegati tra loro */
 h1,
 h2,
 h3,
 h4 {
     background-color: cadetblue;
+}
+
+/* ----------------------- EREDITARIETÀ E SPECIFICITÀ ----------------------- */
+/*
+    Gli elementi HTML possono ereditare alcune proprietà CSS dai genitori, ma non tutte.
+    Nell'esempio sottostante, il colore del P sarà rosso, perché è stata assegnata la regola color al genitore.
+
+    div {
+        color: red;
+    }
+
+    <div>
+        <p>Ciao</p>
+    </div>
+*/
+section {
+    color: lightcoral; /* ereditato */
+    border: 1px solid grey; /* non ereditato */
+    margin: 40px; /* non ereditato */
+    font-weight: bold; /* ereditato */
+}
+
+/* Possiamo forzare un elemento a ereditare le proprietà che altrimenti non erediterebbe dal genitore */
+section p {
+    border: inherit;
+    margin: inherit;
+    /* Questa regola sovrascriverà quella ereditata dal genitore, in quanto più specifica perché la stiamo assegnando direttamente agli elementi interessati */
+    color: crimson;
+}
+
+span {
+    /* Posso vincere solo con !important */
+    color: cornflowerblue !important;
+}
+
+ul ol+li {
+    color: orange;
+}
+
+ul li {
+    text-decoration: underline;
+}
+
+ul > li {
+    color: red;
 }
