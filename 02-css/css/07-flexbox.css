@@ -1,0 +1,234 @@
+/* 1) RESET MINIMO + STILE BASE */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.5;
+    background: #f5f7fb;
+    color: #111827;
+}
+
+/* Contenitore centrato per la pagina */
+.container {
+    width: min(1100px, 92vw);
+    margin: 0 auto;
+}
+
+/* 2) STILE GENERALE: HEADER, SEZIONI, TIPOGRAFIA */
+
+.site-header {
+    padding: 3.8rem 0 3rem;
+    background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #ec4899 100%);
+    color: #f9fafb;
+}
+
+.eyebrow {
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    opacity: 0.85;
+    margin: 0 0 0.5rem;
+}
+
+h1 {
+    /* clamp(valore minimo, valore ideale, valore massimo) */
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
+    line-height: 1.15;
+    margin: 0 0 0.9rem;
+}
+
+.lead {
+    max-width: 60ch;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.section {
+    padding: 3rem 0;
+}
+
+.section-alt {
+    padding: 3rem 0;
+    background: #eef2ff;
+}
+
+h2 {
+    font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+    margin: 0 0 1rem;
+}
+
+h3 {
+    font-size: 1.15rem;
+    margin: 0 0 0.6rem;
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+/* Box note esplicative */
+.note {
+    margin-top: 1.2rem;
+    padding: 1rem 1.1rem;
+    background: #f9fafb;
+    border-radius: 12px;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    box-shadow: 0px 10px 15px 0px rgba(15, 23, 42, 0.18);
+}
+
+code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    background: rgba(236, 72, 154, 0.2);
+    padding: 0.1em 0.35em;
+    border-radius: 0.35rem;
+    font-size: 0.9em;
+}
+
+/* Caption sotto le demo */
+.caption {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-top: 0.6rem;
+}
+
+/* Layout per coppie di demo affiancate */
+.flex-demo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.3rem;
+}
+
+@media (max-width: 900px) {
+    .flex-demo-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.flex-block {
+    background: #f9fafb;
+    border-radius: 14px;
+    padding: 1.2rem;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    box-shadow: 0px 10px 15px 0px rgba(15, 23, 42, 0.18);
+}
+
+/* Box piccoli usati per le demo */
+.box {
+    background: #4f46e5;
+    color: #eef2ff;
+    border-radius: 10px;
+    padding: 0.4rem 0.7rem;
+    min-width: 44px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Variante di box più alta per mostrare align-items */
+.box.tall {
+    padding-block: 1.4rem;
+}
+
+/* 3) DEMO: DISPLAY:FLEX E FLEX-DIRECTION */
+
+/* Container flex base (riga) */
+.flex-row-base {
+    /*
+        display: flex trasforma questo elemento in un "flex container"
+
+        CONSEGUENZE:
+        - i suoi figli diretti diventano "flex items"
+        - di default flex-direction è "row"
+        - quindi il main axis è orizzontale
+    */
+    display: flex;
+    /* default. sarebbe inutile scriverlo */
+    flex-direction: row;
+    gap: 0.5rem;
+
+    /* Aggiungiamo padding e sfondo per vedere il container */
+    background: #e0e7ff;
+    padding: 0.6rem;
+    border-radius: 12px;
+}
+
+/* Container flex base (colonna) */
+.flex-column-base {
+    /*
+        Cambiando flex-direction a column,
+        il main axis diventa verticale.
+
+        Questo significa che:
+        - i figli diretti del container flex (flex items) si dispongono in colonna uno sotto l'altro
+        - nonostante sia lo stesso risultato senza flex, possiamo utilizzare tutte le proprietà flex per gestire i flex items come ci pare
+    */
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+
+    background: #e0e7ff;
+    padding: 0.6rem;
+    border-radius: 12px;
+}
+
+/* 4) JUSTIFY-CONTENT E ALIGN-ITEMS */
+
+/* justify-content */
+.justify-between {
+    justify-content: space-between;
+}
+
+/* Container più alto per far vedere l'allineamento verticale */
+.flex-row-tall {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+
+    background: #e0e7ff;
+    padding: 0.6rem;
+    border-radius: 12px;
+
+    /* Altezza fissa solo per questa demo */
+    min-height: 120px;
+}
+
+.align-center {
+    align-items: center;
+}
+
+/* 5) DEMO: FLEX-WRAP E GAP */
+
+.flex-wrap-demo {
+    margin-top: 1.3rem;
+}
+
+/* Container con wrap e gap */
+.flex-wrap-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+
+    background: #e0e7ff;
+    padding: 0.6rem;
+    border-radius: 12px;
+}
+
+.tag {
+    background: #4f46e5;
+    color: #eef2ff;
+    border-radius: 999px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}

@@ -1,0 +1,40 @@
+/* ---------------------------- Stili per mobile ---------------------------- */
+body {
+    color: #f4f4f4;
+    background-color: #313132;
+}
+
+main {
+    padding: 1rem;
+}
+
+p {
+    font-size: 1.2em;
+}
+
+/* ---------------------------- Stili per tablet ---------------------------- */
+@media (min-width: 768px) {
+    body {
+        background-color: #202021;
+    }
+
+    main {
+        max-width: 80%;
+        margin: 0 auto;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+}
+
+/* ---------------------------- Stili per desktop --------------------------- */
+@media (min-width: 1200px) {
+    body {
+        background-color: #151515;
+    }
+
+    main {
+        max-width: 1140px;
+    }
+}

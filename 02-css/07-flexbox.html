@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS - CSS 07 - Flexbox</title>
+
+    <link rel="stylesheet" href="css/07-flexbox.css">
+</head>
+<body>
+    <!--
+        1) flex container vs flex items
+        2) Asse principale (main axis) e asse trasversale (cross axis)
+        3) Proprietà principali del container:
+           - display: flex
+           - flex-direction
+           - justify-content
+           - align-items
+           - flex-wrap
+           - gap
+        4) Proprietà sugli elementi:
+           - flex (grow, shrink, basis)
+           - align-self
+           - order
+        5) Esempi pratici:
+           - Navbar orizzontale
+           - Cards allineate e con altezze uguali
+           - Layout responsivo con colonne che si ridistribuiscono
+    -->
+
+    <header class="site-header">
+        <div class="container">
+            <p class="eyebrow">HTML & CSS - CSS 07</p>
+            <h1>Flexbox</h1>
+            <p class="lead">
+                Flex container e flex items. Differenza tra asse principale e asse trasversale. Centrare, allineare, distribuire gli elementi in un layout.
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <!-- SEZIONE 1: concetti base -->
+        <section class="section">
+            <div class="container">
+                <h2>1) Cos'è Flexbox e quando usarlo</h2>
+
+                <p>
+                    Flexbox è un modo moderno di disporre elementi in fila o in colonna, gestendo gli spazi e gli allineamenti in maniera molto più semplice rispetto a float o inline-block.
+                </p>
+
+                <div class="note">
+                    <strong>Parole chiave:</strong>
+
+                    <ul>
+                        <li>
+                            <strong>Flex container</strong>: l'elemento a cui assegniamo <code>display: flex</code>.
+                        </li>
+                        <li>
+                            <strong>Flex items</strong>: gli elementi figli DIRETTI del flex container.
+                        </li>
+                        <li>
+                            <strong>Main axis</strong>: asse principale (dipende da <code>flex-direction</code>).
+                        </li>
+                        <li>
+                            <strong>Cross axis</strong>: asse trasversale, perpendicolare al main axis.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-alt">
+            <div class="container">
+                <h2>2) Il container flex - display: flex e flex-direction</h2>
+
+                <p>
+                    Il primo passo è trasformare un elemento in <strong>flex container</strong> usando <code>display: flex</code>. Poi scegliamo la direzione principale: <code>row</code> (default, orizzontale) oppure <code>column</code> (verticale).
+                </p>
+
+                <div class="flex-demo-grid">
+                    <!-- esempio row -->
+                    <div class="flex-block">
+                        <h3>flex-direction: row (default)</h3>
+
+                        <div class="flex-row-base">
+                            <div class="box">A</div>
+                            <div class="box">B</div>
+                            <div class="box">C</div>
+                        </div>
+
+                        <p class="caption">
+                            Gli elementi si dispongono da sinistra a destra (main axis orizzontale).
+                        </p>
+                    </div>
+
+                    <!-- esempio column -->
+                    <div class="flex-block">
+                        <h3>flex-direction: column</h3>
+
+                        <div class="flex-column-base">
+                            <div class="box">A</div>
+                            <div class="box">B</div>
+                            <div class="box">C</div>
+                        </div>
+
+                        <p class="caption">
+                            Gli elementi si dispongono dall'alto verso il basso (main axis verticale).
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE 3: justify-content + align-items -->
+        <section class="section">
+            <div class="container">
+                <h2>3) Allineare lungo il main e il cross axis</h2>
+
+                <p>
+                    Due proprietà fondamentali del container sono:
+                </p>
+
+                <ul>
+                    <li>
+                        <code>justify-content</code>: allineamento lungo il main axis.
+                    </li>
+                    <ul>
+                        <li>
+                            <code>flex-start</code> (default) allinea gli elementi all'inizio dell'asse principale
+                        </li>
+                        <li>
+                            <code>flex-end</code> allinea gli elementi alla fine dell'asse principale
+                        </li>
+                        <li>
+                            <code>center</code> allinea gli elementi al centro dell'asse principale
+                        </li>
+                        <li>
+                            <code>space-between</code> distribuisce lo spazio tra gli elementi
+                        </li>
+                        <li>
+                            <code>space-around</code> distribuisce lo spazio attorno agli elementi
+                        </li>
+                        <li>
+                            <code>space-evenly</code> distribuisce lo spazio in modo uniforme tra gli elementi
+                        </li>
+                    </ul>
+                    <li>
+                        <code>align-items</code>: allineamento lungo il cross axis
+                    </li>
+                    <ul>
+                        <li>
+                            <code>stretch</code> (default) gli elementi si allungano per riempire il contenitore
+                        </li>
+                        <li>
+                            <code>flex-start</code> allinea gli elementi all'inizio dell'asse trasversale
+                        </li>
+                        <li>
+                            <code>flex-end</code> allinea gli elementi alla fine dell'asse trasversale
+                        </li>
+                        <li>
+                            <code>center</code> centra gli elementi lungo l'asse trasversale
+                        </li>
+                        <li>
+                            <code>baseline</code> allinea gli elementi lungo la linea di base del testo
+                        </li>
+                    </ul>
+                </ul>
+
+                <div class="flex-demo-grid">
+                    <!-- justify-content -->
+                    <div class="flex-block">
+                        <h3>justify-content: space-between</h3>
+
+                        <div class="flex-row-base justify-between">
+                            <div class="box">1</div>
+                            <div class="box">2</div>
+                            <div class="box">3</div>
+                        </div>
+
+                        <p class="caption">
+                            Lo spazio extra viene distribuito tra gli elementi: il primo a sinistra, l'ultimo a destra, gli altri in mezzo.
+                        </p>
+                    </div>
+
+                    <!-- align-items -->
+                    <div class="flex-block">
+                        <h3>align-items: center</h3>
+
+                        <div class="flex-row-tall align-center">
+                            <div class="box tall">1</div>
+                            <div class="box">2</div>
+                            <div class="box">3</div>
+                        </div>
+
+                        <p class="caption">
+                            Tutti gli elementi sono centrati verticalmente nel flex container, indipendentemente dalla loro altezza.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEZIONE 4: flex-wrap + gap -->
+        <section class="section section-alt">
+            <div class="container">
+                <h2>4) Andare a capo e gestire gli spazi: flex-wrap e gap</h2>
+
+                <p>
+                    Di default Flexbox cerca di tenere tutti gli elementi sulla stessa riga.
+                    Con <code>flex-wrap: wrap</code> gli items possono andare a capo.
+                    Con <code>gap</code> controlli lo spazio tra gli elementi senza usare margin.
+                </p>
+
+                <div class="note">
+                    <strong>Tip:</strong> usa <code>gap</code> quando possibile:
+                    è più leggibile che usare margin singoli su ogni elemento.
+                </div>
+
+                <div class="flex-wrap-demo">
+                    <div class="flex-wrap-grid">
+                        <div class="tag">HTML</div>
+                        <div class="tag">CSS</div>
+                        <div class="tag">JavaScript</div>
+                        <div class="tag">Flexbox</div>
+                        <div class="tag">Grid</div>
+                        <div class="tag">Responsive</div>
+                        <div class="tag">Accessibilità</div>
+                        <div class="tag">UI Design</div>
+                        <div class="tag">Figma</div>
+                    </div>
+
+                    <p class="caption">
+                        Riduci la larghezza della finestra: i tag andranno a capo
+                        mantenendo lo spazio (gap) uniforme tra loro.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>

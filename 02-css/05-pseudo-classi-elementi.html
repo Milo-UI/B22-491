@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS - CSS 05 - Pseudo classi ed elementi</title>
+
+    <link rel="stylesheet" href="../css/general.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+        <h1>Pseudo classi ed elementi</h1>
+
+        <p>
+            Pseudo classi ed elementi sono parole chiave che possiamo aggiungere ai nostri selettori CSS per targettare gli elementi solo quando sono in un determinato stato, per esempio quando l'utente ci passa sopra col cursore o quando l'elemento è il primo figlio del genitore.
+        </p>
+
+        <h2>Pseudo classi</h2>
+
+        <p>
+            Utilizziamo le pseudo classi aggiungendo alla fine del selettore due punti e la parola chiave che ci interessa.
+        </p>
+
+        <p>
+            Alcune delle pseudo classi più comuni:
+        </p>
+
+        <ul>
+            <li>:hover -> Si applica quando l'utente passa il cursore sopra un elemento.</li>
+            <li>:active -> Si applica quando un elemento è attivamente selezionato (ad esempio, durante un clic).</li>
+            <li>:focus -> Si applica quando un elemento ha il focus, per esempio quando un campo di input è selezionato.</li>
+            <li>:first-child -> Si applica al primo figlio di un elemento genitore.</li>
+            <li>:last-child -> Si applica all'ultimo figlio di un elemento genitore.</li>
+            <li>:nth-child(n) -> Seleziona il n-esimo figlio di un elemento padre. n può essere un numero, una parola chiave come odd o even, o una formula.</li>
+        </ul>
+
+        <p>
+            Per un elenco completo, clicca su <a href="https://www.w3schools.com/cssref/css_ref_pseudo_classes.php" target="_blank" title="elenco di pseudo classi">questo link</a>.
+        </p>
+
+        <h2>Pseudo elementi</h2>
+
+        <p>
+            Gli pseudo-elementi in CSS sono utilizzati per stilizzare parti specifiche di un elemento, senza la necessità di aggiungere markup HTML. A differenza delle pseudo-classi, che si riferiscono a stati o posizioni di un elemento, gli pseudo-elementi si concentrano su parti interne di un elemento stesso.
+        </p>
+
+        <p>
+            Utilizziamo gli pseudo elementi aggiungendo alla fine del selettore una coppia di due punti e la parola chiave che ci interessa.
+        </p>
+
+        <p>
+            Alcuni degli pseudo elementi più comuni:
+        </p>
+
+        <ul>
+            <li>::before -> Aggiunge contenuto prima del contenuto dell'elemento selezionato.</li>
+            <li>::after -> Aggiunge contenuto dopo il contenuto dell'elemento selezionato.</li>
+            <li>::first-line -> Si applica alla prima riga di un blocco di testo.</li>
+            <li>::first-letter -> Si applica alla prima lettera di un blocco di testo.</li>
+            <li>::selection -> Si applica al testo selezionato dall'utente.</li>
+        </ul>
+
+        <p>
+            Per un elenco completo, clicca su <a href="https://www.w3schools.com/cssref/css_ref_pseudo_elements.php" target="_blank" title="elenco di pseudo elementi">questo link</a>.
+        </p>
+
+    </div>
+
+</body>
+
+</html>

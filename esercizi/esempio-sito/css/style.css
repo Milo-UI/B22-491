@@ -124,7 +124,8 @@ article h2 {
 }
 
 article p {
-    line-height: 1.8em; /* interlinea */
+    line-height: 1.8em;
+    /* interlinea */
     color: var(--text-clr);
 }
 
@@ -220,4 +221,79 @@ article p::before {
     position: absolute;
     inset: 0;
     background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* ---------------------------- Stili responsive ---------------------------- */
+@media (max-width: 1400px) {
+    .banner h2 {
+        font-size: 3.8rem;
+    }
+
+    .main-nav li {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .banner h2 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner h2 {
+        font-size: 2.1rem;
+    }
+
+    .banner::after {
+        display: none;
+    }
+
+    .welcome {
+        position: relative;
+        top: auto;
+        transform: translateY(0);
+        text-align: center;
+        padding: 1.25rem;
+    }
+
+    .welcome br {
+        display: none;
+    }
+
+    .welcome h2 span {
+        font-size: 1em;
+    }
+
+    .images li {
+        display: block;
+        width: 100%;
+        margin: 20px auto;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        padding-top: 0;
+    }
+
+    header {
+        position: relative;
+    }
+
+    .main-nav {
+        top: 0;
+    }
+
+    .main-nav li {
+        width: 100%;
+        display: block;
+        font-size: 1.25rem;
+        text-align: left;
+        margin-bottom: 20px;
+    }
+
+    .main-nav li:last-child {
+        margin-bottom: 0;
+    }
 }
