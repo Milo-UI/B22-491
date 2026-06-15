@@ -236,6 +236,202 @@
                 </div>
             </div>
         </section>
+
+        <!-- SEZIONE 5: flex grow/shrink + card layout -->
+        <section class="section">
+            <div class="container">
+                <h2>5) Far crescere gli elementi: flex-grow, flex-shrink, flex-basis</h2>
+
+                <!--
+                    La proprietà "flex" è uno shorthand per:
+                    flex: grow shrink basis;
+                -->
+
+                <p>
+                    Con la proprietà <code>flex</code> possiamo controllare quanto un flex item sia "elastico": quanto cresce, quanto si restringe e qual è la sua dimensione di base.
+                </p>
+
+                <div class="note">
+                    <strong>Regola pratica:</strong>
+                    spesso basta usare <code>flex: 1;</code> per far sì che più elementi occupino tutto lo spazio disponibile in parti uguali.
+                </div>
+
+                <!--
+                    Esempio: layout di card che si allargano in modo fluido.
+                -->
+                <div class="cards-flex-row">
+                    <!-- Ogni card è un flex item -->
+                    <article class="card">
+                        <h3>Card 1</h3>
+                        <p>
+                            In questo layout ogni card ha <code>flex: 1</code> e il container è impostato con <code>display: flex</code>.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Card 2</h3>
+                        <p>
+                            Le card crescono e si restringono assieme, mantenendo una larghezza uniforme, con gap controllato dal flex container.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Card 3</h3>
+                        <p>
+                            Su schermi più piccoli il layout diventa a colonna grazie alla media query.
+                        </p>
+                    </article>
+                </div>
+
+                <h2>5b) Altri esempi</h2>
+
+                <p>
+                    La proprietà <code>flex</code> è uno shorthand per <code>flex-grow</code>, <code>flex-shrink</code> e <code>flex-basis</code>. Vediamo separatamente cosa fa ognuna con tre mini demo visive.
+                </p>
+
+                <div class="note" style="margin-bottom: 1.5rem;">
+                    <strong>Idea mentale:</strong> prima Flexbox guarda la <code>flex-basis</code> (dimensione di base), poi usa <code>flex-grow</code> se avanza spazio e <code>flex-shrink</code> se lo spazio non basta.
+                </div>
+
+                <!-- DEMO 1: flex-grow -->
+                <h3>1) flex-grow: come dividersi lo spazio in più</h3>
+
+                <p>
+                    Tutti gli elementi partono dalla stessa base, ma hanno valori di <code>flex-grow</code> diversi. Ridimensiona la finestra e guarda come cambia la proporzione.
+                </p>
+
+                <div class="flex-gsb-demo flex-gsb-grow">
+                    <div class="box-gsb grow-1">grow: 1</div>
+                    <div class="box-gsb grow-1">grow: 1</div>
+                    <div class="box-gsb grow-2">grow: 2</div>
+                </div>
+
+                <p class="caption">
+                    Il terzo elemento ha <code>flex-grow: 2</code> e prende il doppio dello spazio extra rispetto agli altri che hanno grow 1.
+                </p>
+
+                <!-- DEMO 2: flex-shrink -->
+                <h3>2) flex-shrink: ridurre la dimensione quando lo spazio non basta</h3>
+
+                <p>
+                    Qui le basi sono uguali, ma uno degli elementi ha <code>flex-shrink: 0</code>, cioè non vuole restringersi. Stringi la finestra per vedere l'effetto.
+                </p>
+
+                <div class="flex-gsb-demo flex-gsb-shrink">
+                    <div class="box-gsb shrink-1">shrink: 1</div>
+                    <div class="box-gsb shrink-0">shrink: 0</div>
+                    <div class="box-gsb shrink-1">shrink: 1</div>
+                </div>
+
+                <p class="caption">
+                    L'elemento con <code>.shrink-0</code> prova a mantenere la sua larghezza, mentre gli altri si comprimono di più.
+                </p>
+
+                <!-- DEMO 3: flex-basis -->
+                <h3>3) flex-basis: da che dimensione bisogna partire</h3>
+
+                <p>
+                    Tutti hanno lo stesso <code>flex-grow</code> e <code>flex-shrink</code>, ma basi diverse. Il risultato: partono da larghezze diverse e poi crescono / si restringono in proporzione.
+                </p>
+
+                <div class="flex-gsb-demo flex-gsb-basis">
+                    <div class="box-gsb basis-small">basis: 100px</div>
+                    <div class="box-gsb basis-medium">basis: 200px</div>
+                    <div class="box-gsb basis-large">basis: 300px</div>
+                </div>
+
+                <p class="caption">
+                    Con <code>flex: 1 1 Xpx</code> la base influenza il "peso iniziale" dell'elemento: quello con base più grande tenderà a occupare più spazio anche dopo la distribuzione.
+                </p>
+            </div>
+        </section>
+
+        <!-- align-self e order -->
+        <section class="section-alt">
+            <div class="container">
+
+                <h2>6) Personalizzare il singolo elemento: align-self e order</h2>
+
+                <p>
+                    A volte vogliamo che un solo elemento si comporti in modo diverso dagli altri. <br>
+                    Possiamo usare:
+                </p>
+
+                <ul>
+                    <li>
+                        <code>align-self</code>: per cambiare l'allineamento lungo l'asse trasversale.
+                    </li>
+                    <li>
+                        <code>order</code>: per cambiare l'ordine visivo degli elementi.
+                    </li>
+                </ul>
+                
+                <div class="flex-self-order-demo">
+                    <!--
+                        Container flex con:
+                        - align-items: center (default per tutti)
+                        - uno degli elementi usa align-self per "staccarsi"
+                        - un elemento usa order per apparire primo
+                    -->
+                    <div class="flex-self-order">
+                        <div class="pill">
+                            Elemento 1
+                        </div>
+                        <div class="pill pill-special">
+                            Elemento con align-self
+                        </div>
+                        <div class="pill pill-reordered">
+                            Primo elemento solo visivamente
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Esempio di navbar con Flexbox -->
+        <section class="section">
+            <div class="container">
+
+                <h2>7) Esempio realistico: navbar con Flexbox</h2>
+
+                <p>
+                    Un caso d'uso tipico: creare una navbar con logo a sinistra, link al centro e bottoni a destra. Flexbox rende semplice realizzare questo design.
+                </p>
+
+                <nav class="navbar">
+                    <div class="navbar-logo">
+                        LOGO
+                    </div>
+
+                    <ul class="navbar-links">
+                        <li>
+                            <a href="#!">Home</a>
+                        </li>
+                        <li>
+                            <a href="#!">Corsi</a>
+                        </li>
+                        <li>
+                            <a href="#!">Risorse</a>
+                        </li>
+                        <li>
+                            <a href="#!">Contatti</a>
+                        </li>
+                        <li class="btn-close">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                        </li>
+                    </ul>
+
+                    <div class="navbar-actions">
+                        <button class="btn btn-ghost btn-light">Login</button>
+                        <button class="btn btn-primary">Registrati</button>
+                        <button class="btn btn-ghost btn-light btn-menu">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg>
+                        </button>
+                    </div>
+                </nav>
+                
+            </div>
+        </section>
     </main>
 
 </body>

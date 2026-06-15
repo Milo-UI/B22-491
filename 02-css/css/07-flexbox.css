@@ -17,6 +17,7 @@ body {
     line-height: 1.5;
     background: #f5f7fb;
     color: #111827;
+    padding-bottom: 100vh;
 }
 
 /* Contenitore centrato per la pagina */
@@ -231,4 +232,318 @@ code {
     padding: 0.35rem 0.9rem;
     font-size: 0.85rem;
     white-space: nowrap;
+}
+
+/* 6) DEMO: FLEX GROW/SHRINK/BASIS (CARDS) */
+
+.cards-flex-row {
+    /*
+        Esempio tipico di layout con card affiancate.
+
+        display: flex => le card sono in riga
+        gap => spazio tra card
+    */
+    display: flex;
+    gap: 1rem;
+    margin-block: 2rem;
+}
+
+/*
+    Layout responsive per le card:
+    su schermi stretti diventano una colonna
+*/
+@media (max-width: 800px) {
+    .cards-flex-row {
+        flex-direction: column;
+    }
+}
+
+.card {
+    background: #f9fafb;
+    border-radius: 14px;
+    padding: 1.2rem;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    box-shadow: 0px 10px 15px 0px rgba(15, 23, 42, 0.18);
+
+    /*
+        flex è lo shorthand di flex-grow flex-shrink e flex-basis
+
+        flex: 1;
+        è equivalente a 
+        flex: 1 1 0;
+
+        RISULTATO:
+        - tutte le card con flex:1 occupano lo spazio in parti uguali
+
+        - flex-grow: quanta parte dello spazio in più (extra) sono disposto a prendermi rispetto agli altri fratelli. Si ragiona in proporzioni e non in pixel.
+        - flex-shrink: quanto mi lascio comprimere quando lo spazio non è sufficiente. Anche qui proporzionale tra gli elementi.
+        - flex-basis: è la dimensione di base lungo il main axis (larghezza se row, altezza se column). Parte da 0, poi cresce in base allo spazio disponibile.
+
+        Valori di default dei flex items
+        flex: 0 1 auto;
+        non cresce, può restringersi, dimensione base = auto
+
+        Colonne fluide che si dividono lo spazio in parti uguali
+        flex: 1 1 0;
+        crescono, si restringono, partono tutti da 0 e si dividono lo spazio
+
+        Elemento fisso, né cresce né si restringe
+        flex: 0 0  200px;
+        sempre 200px
+
+        Elemento che cresce il doppio degli altri
+        flex: 2 1 0;
+        si prende il doppio dello spazio extra rispetto ai fratelli con flex: 1 1 0;
+    */
+    flex: 1;
+}
+
+.flex-gsb-demo {
+    display: flex;
+    gap: .75rem;
+    margin-top: 1rem;
+
+    background: #eff6ff;
+    padding: 0.9rem;
+    border-radius: 14px;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+}
+
+.box-gsb {
+    background: #4f46e5;
+    color: #eef2ff;
+    border-radius: 10px;
+    padding: .45rem .75rem;
+    font-size: .85rem;
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* DEMO GROW */
+.grow-1 {
+    /*
+        Questi elementi:
+        - partono da 120px (basis)
+        - possono restringersi
+        - crescono con "peso" 1
+    */
+    flex: 1 1 120px;
+}
+
+.grow-2 {
+    /*
+        Cresce più degli altri a parità di spazio in più
+    */
+    flex: 2 1 120px;
+}
+
+/* DEMO SHRINK */
+.flex-gsb-shrink .box-gsb {
+    /*
+        Tutti partono dalla stessa base più grande,
+        così è più facile vedere la compressione
+    */
+    flex-basis: 180px;
+}
+
+/* si restringe normalmente */
+.shrink-1 {
+    flex-shrink: 1;
+}
+
+/* cerca di NON restringersi */
+.shrink-0 {
+    flex-shrink: 0;
+    background: #f97316;
+}
+
+/* DEMO BASIS */
+.flex-gsb-basis .box-gsb {
+    /*
+        Qui usiamo lo stesso grow/shrink per tutti
+    */
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.basis-small {
+    flex-basis: 100px;
+}
+
+.basis-medium {
+    flex-basis: 200px;
+    background: #6366f1;
+}
+
+.basis-large {
+    flex-basis: 300px;
+    background: #ec4899;
+}
+
+/* 7) DEMO: ALIGN-SELF E ORDER */
+
+.flex-self-order-demo {
+    margin-top: 1.5rem;
+}
+
+.flex-self-order {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+
+    background: #e0f2fe;
+    padding: .8rem;
+    border-radius: 12px;
+
+    min-height: 90px;
+}
+
+.pill {
+    background: #0ea5e9;
+    color: #f0f9ff;
+    border-radius: 999px;
+    padding: .3rem 1rem;
+    font-size: .9rem;
+}
+
+/* Elemento con align-self */
+.pill-special {
+    /*
+        align-self sovrascrive l'allineamento del singolo elemento rispetto al align-items del contenitore flex.
+        In questo caso il contenitore allinea al centro, ma questo elemento viene allineato in alto.
+    */
+    align-self: flex-start;
+    background: #6366f1;
+}
+
+/* Elemento che viene visualizzato per primo grazie a order */
+.pill-reordered {
+    /*
+        Gli elementi flex ha di default order: 0
+        Un valore più piccolo viene visivamente prima, un valore più grande dopo.
+
+        ATTENZIONE
+        Cambia solo l'ordine visivo, non l'ordine nel DOM (importante per accessibilità e screen reader)
+    */
+    order: -1;
+    background: #f97316;
+}
+
+/* BOTTONI RIUTILIZZABILI */
+.btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: .45rem .9rem;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    font-size: .9rem;
+    cursor: pointer;
+    text-decoration: none;
+
+    transition: .3s ease;
+}
+
+.btn-primary {
+    background: #4f46e5;
+    color: #eef2ff;
+    background-color: rgba(78, 70, 229, 0.9);
+}
+
+.btn-primary:hover {
+    background: #4338ca;
+}
+
+.btn-ghost {
+    background: transparent;
+    color: #111827;
+    border-color: rgba(148, 163, 184, 0.6);
+}
+
+.btn-ghost:hover {
+    border-color: rgba(148, 163, 184, 0.12);
+}
+
+.btn-ghost.btn-light {
+    color: #e0e7ff;
+}
+
+/* ESEMPIO NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: #e5e7eb;
+    background: #111827;
+    margin-top: 1.6rem;
+    padding: .7rem 1rem;
+    border-radius: 999px;
+}
+
+/* logo */
+.navbar-logo {
+    font-weight: 700;
+    letter-spacing: 0.08rem;
+    font-size: .95rem;
+}
+
+/* links */
+.navbar-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    gap: 1.2rem;
+}
+
+.navbar-links a {
+    color: inherit;
+    text-decoration: none;
+    font-size: .9rem;
+    opacity: 0.95;
+}
+
+.navbar-links a:hover {
+    opacity: 1;
+}
+
+/* bottoni navbar */
+.navbar-actions {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.btn-menu,
+.btn-close {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .navbar-links {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        position: fixed;
+        top: 0;
+        right: -100%;
+
+        width: 100%;
+        height: 100vh;
+        background-color: #4338ca;
+
+        transition: all .2s ease;
+    }
+
+    .navbar-links.open {
+        right: 0;
+    }
+
+    .btn-menu {
+        display: inline-flex;
+    }
 }
