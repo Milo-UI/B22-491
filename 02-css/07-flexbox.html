@@ -434,5 +434,18 @@
         </section>
     </main>
 
+    <script>
+        const menu = document.querySelector('.navbar-links');
+        const btnNavOpen = document.querySelector('.btn-menu');
+        const btnNavClose = document.querySelector('.btn-close');
+
+        btnNavOpen.addEventListener('click', () => {
+            menu.classList.add('open');
+        });
+
+        btnNavClose.addEventListener('click', () => {
+            menu.classList.remove('open');
+        });
+    </script>
 </body>
 </html>

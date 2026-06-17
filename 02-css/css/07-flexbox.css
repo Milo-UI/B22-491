@@ -17,7 +17,6 @@ body {
     line-height: 1.5;
     background: #f5f7fb;
     color: #111827;
-    padding-bottom: 100vh;
 }
 
 /* Contenitore centrato per la pagina */
@@ -545,5 +544,13 @@ code {
 
     .btn-menu {
         display: inline-flex;
+    }
+
+    .btn-close {
+        display: block;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        cursor: pointer;
     }
 }
