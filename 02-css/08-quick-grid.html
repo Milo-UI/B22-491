@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS - Stile pagine 08 - Quick CSS Grid</title>
+
+    <link rel="stylesheet" href="css/08-quick-grid.css">
+</head>
+<body>
+
+    <h1>HTML & CSS - Stile pagine 08 - Quick CSS Grid</h1>
+
+    <!-- Griglia base -->
+    <section>
+        <h2>2) Griglia base</h2>
+
+        <div class="grid-base">
+            <div class="cell">1</div>
+            <div class="cell">2</div>
+            <div class="cell">3</div>
+            <div class="cell">4</div>
+            <div class="cell">5</div>
+            <div class="cell">6</div>
+        </div>
+
+        <p class="caption">
+            <code>grid-template-columns: 120px 1fr 120px</code> + <code>gap</code>
+        </p>
+    </section>
+
+    <!-- Unità: fr e minmax -->
+    <section>
+        <h2>2) Unità: fr e minmax()</h2>
+
+        <!-- fr = frazione dello spazio disponibile. 2fr sarà larga il doppio -->
+        <div class="grid-fr">
+            <div class="cell">1</div>
+            <div class="cell">2</div>
+            <div class="cell">3</div>
+        </div>
+
+        <!-- minmax = minimo garantito, ma può crescere -->
+        <div class="grid-minmax">
+            <div class="cell">minmax(120px, 1fr)</div>
+            <div class="cell">minmax(120px, 1fr)</div>
+            <div class="cell">minmax(120px, 1fr)</div>
+        </div>
+
+        <p class="caption">
+            <code>repeat(3, minmax(120px, 1fr))</code>
+        </p>
+    </section>
+
+    <!-- Posizionamento con linee -->
+    <section>
+        <h2>3) Posizionare con le linee</h2>
+
+        <div class="grid-lines">
+            <div class="cell lines-header">header -> 1 / -1</div>
+            <div class="cell lines-side">side -> span 2 righe</div>
+            <div class="cell">a</div>
+            <div class="cell">b</div>
+            <div class="cell">c</div>
+            <div class="cell">d</div>
+            <div class="cell">e</div>
+        </div>
+
+        <p class="caption">
+            <code>grid-column: 1 / -1</code> - <code>grid-row: span 2</code>
+        </p>
+    </section>
+
+    <!-- grid-template-areas -->
+    <section>
+        <h2>4) grid-template-areas</h2>
+
+        <!-- Permette di "disegnare" il layout a parole, molto più leggibile -->
+        <div class="grid-areas">
+            <div class="area-header">Header</div>
+            <div class="area-sidebar">Sidebar</div>
+            <div class="area-main">Main</div>
+            <div class="area-footer">Footer</div>
+        </div>
+
+        <p class="caption">
+            "header header" <br>
+            "sidebar main" <br>
+            "footer footer"
+        </p>
+    </section>
+
+    <!-- auto-fit + minmax -->
+    <section>
+        <h2>5) Card responsive (auto-fit + minmax)</h2>
+
+        <div class="grid-cards">
+            <div class="card">Card 1</div>
+            <div class="card">Card 2</div>
+            <div class="card">Card 3</div>
+            <div class="card">Card 4</div>
+        </div>
+
+        <p class="caption">
+            <code>repeat(auto-fit, minmax(200px, 1fr))</code> - niente media query
+        </p>
+    </section>
+    
+</body>
+</html>

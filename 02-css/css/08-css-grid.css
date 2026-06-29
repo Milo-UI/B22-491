@@ -1,0 +1,501 @@
+/* 1) RESET MINIMO E BASE */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    background: #f5f7fb;
+    color: #111827;
+}
+
+/* Contenitore centrato per la pagina */
+.container {
+    width: min(1100px, 92vw);
+    margin-inline: auto;
+}
+
+/* 2) STILE GENERALE: HEADER, SEZIONI, TIPOGRAFIA */
+.site-header {
+    padding: 3.8rem 0 3rem;
+    background: linear-gradient(135deg, #0ea5e9, #6366f1, #a855f7);
+    color: #f9fafb;
+}
+
+.eyebrow {
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    opacity: 0.9;
+    margin: 0 0 0.5rem;
+}
+
+h1 {
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
+    line-height: 1.15;
+    margin: 0 0 0.9rem;
+}
+
+.lead {
+    max-width: 62ch;
+    margin: 0;
+    opacity: 0.95;
+}
+
+.section {
+    padding: 3rem 0;
+}
+
+.section-alt {
+    background: #eef2ff;
+}
+
+.site-footer {
+    padding: 2.5rem 0 3rem;
+    font-size: 0.95rem;
+    color: #6b7280;
+    border-top: 1px solid rgba(148, 163, 184, 0.5);
+}
+
+h2 {
+    font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+    margin: 0 0 1rem;
+}
+
+h3 {
+    font-size: 1.15rem;
+    margin: 0 0 0.6rem;
+}
+
+h4 {
+    font-size: 1.05rem;
+    margin: 0 0 0.4rem;
+}
+
+p {
+    margin: 0 0 1rem;
+}
+
+/* Box note esplicative */
+.note {
+    margin-top: 1.2rem;
+    padding: 1rem 1.1rem;
+    border-radius: 12px;
+    background: #f9fafb;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.04);
+}
+
+code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    background: rgba(15, 23, 42, 0.04);
+    padding: 0.1em 0.35em;
+    border-radius: 0.35rem;
+    font-size: 0.9em;
+}
+
+/* Caption sotto le demo */
+.caption {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin-top: 0.6rem;
+}
+
+/* Celle generiche per le demo Grid */
+.cell {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #4f46e5;
+    color: #eef2ff;
+    border-radius: 10px;
+    padding: 0.4rem 0.65rem;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* 3) DEMO: GRID CONTAINER BASE */
+.grid-demo-block {
+    margin-top: 1.3rem;
+}
+
+/*
+    .grid-basic:
+    - 3 colonne:
+        1) 120px (fissa)
+        2) 1fr  (parte di spazio flessibile)
+        3) 120px (fissa)
+
+    NB: FR (fractional unit) è centrale in CSS Grid:
+    "dividi lo spazio rimanente in tot parti".
+*/
+.grid-basic {
+    display: grid;
+    grid-template-columns: 120px 1fr 120px;
+    grid-auto-rows: 70px;
+    /* altezza di base delle righe per vedere bene la griglia */
+    gap: 0.5rem;
+
+    background: #e0f2fe;
+    padding: 0.7rem;
+    border-radius: 14px;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+/* 4) DEMO: UNITÀ (PX, FR, AUTO, MINMAX) */
+.grid-units-wrapper {
+    display: grid;
+    /* grid-template-columns: 1fr; */
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 1.2rem;
+    margin-top: 1.3rem;
+}
+
+@media (max-width: 900px) {
+    .grid-units-wrapper {
+        grid-template-columns: 1fr;
+    }
+}
+
+.grid-units-block {
+    background: #f9fafb;
+    border-radius: 14px;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    padding: 1.1rem 1.1rem 1.2rem;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+}
+
+/* Container base per le demo di unità */
+.grid-units {
+    display: grid;
+    gap: 0.4rem;
+    margin-top: 0.6rem;
+}
+
+/* FR demo */
+.grid-units-fr {
+    grid-template-columns: 120px 1fr 2fr;
+}
+
+/* AUTO demo */
+.grid-units-auto {
+    grid-template-columns: auto auto auto;
+}
+
+.long-text {
+    padding-inline: 0.9rem;
+}
+
+/* MINMAX demo */
+.grid-units-minmax {
+    /*
+        Tre colonne con minimo 120px, massimo 1fr ciascuna.
+        Le colonne possono restringersi ma non sotto 120px.
+    */
+    grid-template-columns: repeat(3, minmax(120px, 1fr));
+}
+
+/* 5) DEMO: POSIZIONAMENTO CON LINEE */
+.grid-lines-demo {
+    margin-top: 1.3rem;
+}
+
+/*
+    In questa demo mostriamo:
+    - disegno esplicito della griglia: 4 colonne, 3 righe
+    - posizionamento con grid-column e grid-row sugli items
+*/
+.grid-lines {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-auto-rows: 60px;
+    gap: 0.4rem;
+
+    background: #e0f2fe;
+    padding: 0.7rem;
+    border-radius: 14px;
+    border: 1px solid rgba(37, 99, 235, 0.35);
+}
+
+/* Item "header" che prende 3 colonne (1 → 3) */
+.area-header {
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+}
+
+/* Sidebar 2 righe (span 2) nella prima colonna libera */
+.area-sidebar {
+    /* span 2 significa "prendi 2 tracce" a partire da questa linea. */
+    grid-column: 4 / 5;
+    grid-row: 1 / span 2;
+    background: #0ea5e9;
+}
+
+/* Main che occupa due colonne centrali */
+.area-main {
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+    background: #6366f1;
+}
+
+/* Footer che occupa tutte le colonne:
+   1 / -1 significa: dalla prima linea all'ultima.
+*/
+.area-footer {
+    grid-column: 1 / -1;
+    grid-row: 3 / 4;
+    background: #a855f7;
+}
+
+/* 6) DEMO: GRID-TEMPLATE-AREAS */
+.grid-areas-demo {
+    margin-top: 1.3rem;
+}
+
+/*
+    Layout di pagina semplice:
+    - grid-template-areas è molto leggibile
+    - le aree sono collegate alle proprietà grid-area dei singoli elementi
+*/
+.page-layout {
+    display: grid;
+
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr auto;
+
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+
+    gap: 0.6rem;
+
+    background: #e5e7eb;
+    padding: 0.8rem;
+    border-radius: 16px;
+}
+
+.page-header {
+    grid-area: header;
+    background: #4f46e5;
+    color: #eef2ff;
+    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+}
+
+.page-sidebar {
+    grid-area: sidebar;
+    background: #1d4ed8;
+    color: #e0f2fe;
+    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+}
+
+.page-main {
+    grid-area: main;
+    background: #eef2ff;
+    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+}
+
+.page-footer {
+    grid-area: footer;
+    background: #0f172a;
+    color: #e5e7eb;
+    border-radius: 10px;
+    padding: 0.7rem 0.9rem;
+}
+
+/* Layout responsive: sidebar sotto il main su schermi stretti */
+@media (max-width: 700px) {
+    .page-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "main"
+            "footer";
+    }
+}
+
+/* 7) DEMO: AUTO-FIT + MINMAX */
+/*
+    Pattern classico:
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+    Effetto:
+    - ogni card ha un minimo (220px)
+    - quando c'è spazio, appare una nuova colonna
+    - quando lo spazio non basta, le card vanno a capo
+*/
+.grid-cards-demo {
+    margin-top: 1.3rem;
+}
+
+.grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+
+    background: #e0f2fe;
+    padding: 0.9rem;
+    border-radius: 16px;
+    border: 1px solid rgba(37, 99, 235, 0.35);
+}
+
+/* Card riusate in più demo */
+.card {
+    background: #f9fafb;
+    border-radius: 14px;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    padding: 1rem 1.1rem 1.1rem;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+}
+
+/* 8) SEZIONE: QUANDO FLEX E QUANDO GRID */
+.flex-vs-grid-layout {
+    margin-top: 1.3rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+    gap: 1.4rem;
+}
+
+@media (max-width: 900px) {
+    .flex-vs-grid-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.flex-vs-grid-text {
+    background: #f9fafb;
+    border-radius: 14px;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    padding: 1.1rem 1.1rem 1.2rem;
+}
+
+.flex-vs-grid-text ul {
+    padding-left: 1.1rem;
+    margin: 0;
+}
+
+.flex-vs-grid-text li {
+    margin-bottom: 0.4rem;
+}
+
+.flex-vs-grid-examples {
+    display: grid;
+    gap: 1rem;
+}
+
+/* Esempio Flex: riga di elementi allineati */
+.example-block {
+    background: #f9fafb;
+    border-radius: 14px;
+    border: 1px solid rgba(148, 163, 184, 0.6);
+    padding: 1rem 1.05rem 1.2rem;
+}
+
+/* Riga con Flexbox (qui solo come esempio visivo, non spieghiamo Flex nel dettaglio) */
+.example-flex-row {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+
+    background: #111827;
+    padding: 0.5rem 0.6rem;
+    border-radius: 999px;
+}
+
+.pill {
+    background: #e5e7eb;
+    color: #111827;
+    border-radius: 999px;
+    padding: 0.25rem 0.7rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+.pill-soft {
+    background: #374151;
+    color: #e5e7eb;
+}
+
+.pill.accent {
+    background: #22c55e;
+    color: #052e16;
+}
+
+/* Esempio Grid: piccolo layout di pagina */
+.example-grid-layout {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+
+    gap: 0.3rem;
+    background: #e5e7eb;
+    padding: 0.6rem;
+    border-radius: 14px;
+}
+
+.eg-header {
+    grid-area: header;
+    background: #4f46e5;
+    color: #eef2ff;
+    border-radius: 8px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+}
+
+.eg-sidebar {
+    grid-area: sidebar;
+    background: #1d4ed8;
+    color: #e0f2fe;
+    border-radius: 8px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+}
+
+.eg-main {
+    grid-area: main;
+    background: #eef2ff;
+    border-radius: 8px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+}
+
+.eg-footer {
+    grid-area: footer;
+    background: #0f172a;
+    color: #e5e7eb;
+    border-radius: 8px;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+}
+
+/* Responsive del mini layout */
+@media (max-width: 600px) {
+    .example-grid-layout {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "main"
+            "footer";
+    }
+}
